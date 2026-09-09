@@ -229,6 +229,46 @@ try {
   }
   await page.setViewport({ width: 390, height: 844, isMobile: true, hasTouch: true });
 
+  // One subject, several meetings: the same class can run Monday morning and
+  // Thursday afternoon, so the sheet collects independent day+time rows.
+  await page.setViewport({ width: 1400, height: 950 });
+  await go("timetable");
+  const weeklyCount = () =>
+    page.evaluate(() => Number(document.body.innerText.match(/(\d+) weekly class/)?.[1] ?? -1));
+  const beforeBulk = await weeklyCount();
+  await clickText("Add a class");
+  await click('dialog [aria-label="Subject"]');
+  { const o = await page.evaluateHandle(() => document.querySelectorAll('[role="option"]')[0]);
+    await o.asElement().click(); await o.dispose(); await pause(); }
+  check("sheet starts with one meeting row",
+    await page.$$eval(".slot-row", (r) => r.length === 1));
+  await click('dialog [aria-label="Wednesday for time 1"]');   // row 1: Mon + Wed
+  await clickText("Add another day and time", "dialog button");
+  check("adding a time creates a second row",
+    await page.$$eval(".slot-row", (r) => r.length === 2));
+  // Times use the in-app picker, so these are text inputs, not type="time".
+  // Each row exposes start, end and room, so the starts are at 0 and 3.
+  const rowTimes = await page.$$eval(".slot-row input", (els) => els.map((e) => e.value));
+  check("each row carries its own start time",
+    rowTimes.length === 6 && rowTimes[0] !== rowTimes[3], rowTimes.join(","));
+  check("the button counts every class it will create",
+    await page.evaluate(() => [...document.querySelectorAll("dialog button")]
+      .some((b) => b.textContent.trim() === "Add 3 classes")));
+  await clickText("Add 3 classes", "dialog button"); await pause(800);
+  check("two rows across three days create three classes",
+    (await weeklyCount()) === beforeBulk + 3, `${beforeBulk} -> ${await weeklyCount()}`);
+
+  // The week view is a calendar, not a list of whichever days happen to be busy.
+  await clickText("Whole week", '[role="tab"]'); await pause(500);
+  const grid = await page.evaluate(() => ({
+    columns: document.querySelectorAll(".week-col").length,
+    order: [...document.querySelectorAll(".week-head")].map((h) => h.textContent.trim()),
+  }));
+  check("week grid shows all seven days", grid.columns === 7, String(grid.columns));
+  check("week grid runs Monday to Sunday",
+    grid.order.join(",") === "Mon,Tue,Wed,Thu,Fri,Sat,Sun", grid.order.join(","));
+  await page.setViewport({ width: 390, height: 844, isMobile: true, hasTouch: true });
+
   check("no uncaught browser errors", errors.length === 0, errors.join(" | "));
 } catch (error) { failed++; console.error("FAIL  interaction sequence:", error); }
 finally { await browser.close(); }
