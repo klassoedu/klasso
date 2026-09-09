@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 
 import { AppProvider } from "@/lib/store";
 import { AppearanceProvider } from "@/components/Appearance";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -41,6 +42,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body className="min-h-full bg-bg text-ink">
         <script dangerouslySetInnerHTML={{ __html: `/* THESIS: A clear view of the college day, held in mineral-green glass. OWN-WORLD: Celadon, evergreen ink, translucent panels, Manrope. STORY: Current class, schedule, attendance, Daily and permanent Master tasks. FIRST VIEWPORT: Brand, greeting, live class and dial, week, schedule, tasks; desktop sidebar and columns. FORM: Mineral-glass study space, candidate 3, seed c82ebad3, user-approved comp A. FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, and DESIGN.md */ try{var t=localStorage.getItem('klasso-theme');if(t==='light'||t==='dark')document.documentElement.dataset.theme=t;}catch(e){}` }} />
         <AppearanceProvider><AppProvider>{children}</AppProvider></AppearanceProvider>
+        <Analytics />
       </body>
     </html>
   );
