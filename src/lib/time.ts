@@ -128,3 +128,33 @@ export function isValidTimezone(tz: string): boolean {
     return false;
   }
 }
+
+/**
+ * The device's IANA zone, or null if the browser reports something Intl cannot
+ * resolve. Reminders fire on this, so a bad value is worse than no value.
+ */
+export function deviceTimezone(): string | null {
+  try {
+    const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
+    return tz && isValidTimezone(tz) ? tz : null;
+  } catch {
+    return null;
+  }
+}
+
+/**
+ * Which zone, if any, the profile should be rewritten to. Pure so the loop
+ * guard is testable: the write updates the profile, which re-runs the effect,
+ * so refusing a zone already attempted this session is what stops a failed
+ * write turning into an endless retry.
+ */
+export function timezoneToSync(
+  stored: string | null | undefined,
+  device: string | null,
+  attempted: string | null,
+): string | null {
+  if (!device) return null;
+  if (device === stored) return null;
+  if (device === attempted) return null;
+  return device;
+}

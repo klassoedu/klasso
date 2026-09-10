@@ -1,7 +1,7 @@
 {
   "app": "Klasso",
   "version": 2,
-  "exported_at": "2026-09-09T20:49:24.092Z",
+  "exported_at": "2026-09-10T07:55:00.575Z",
   "data": {
     "subjects": [
       {
@@ -49,7 +49,7 @@
         "created_at": ""
       },
       {
-        "id": "b8bf7121-27cc-4a3a-a214-9c6cdbd450b8",
+        "id": "854936ce-6e4b-4fe3-831b-0bec36f23e67",
         "user_id": "u",
         "created_at": "",
         "short_name": null,
@@ -66,8 +66,8 @@
         "user_id": "u",
         "subject_id": "s0",
         "weekday": 4,
-        "start_time": "00:00",
-        "end_time": "00:55",
+        "start_time": "10:19",
+        "end_time": "11:14",
         "room": "LT-3",
         "kind": "lecture",
         "created_at": ""
@@ -77,8 +77,8 @@
         "user_id": "u",
         "subject_id": "s1",
         "weekday": 4,
-        "start_time": "01:00",
-        "end_time": "01:55",
+        "start_time": "11:19",
+        "end_time": "12:14",
         "room": "B-12",
         "kind": "lecture",
         "created_at": ""
@@ -88,8 +88,8 @@
         "user_id": "u",
         "subject_id": "s2",
         "weekday": 4,
-        "start_time": "03:30",
-        "end_time": "04:25",
+        "start_time": "13:49",
+        "end_time": "14:44",
         "room": "LT-1",
         "kind": "lecture",
         "created_at": ""
@@ -99,8 +99,8 @@
         "user_id": "u",
         "subject_id": "s3",
         "weekday": 4,
-        "start_time": "04:35",
-        "end_time": "06:25",
+        "start_time": "14:54",
+        "end_time": "16:44",
         "room": "Lab 4",
         "kind": "lab",
         "created_at": ""
@@ -110,8 +110,8 @@
         "user_id": "u",
         "subject_id": "s2",
         "weekday": 5,
-        "start_time": "00:00",
-        "end_time": "00:55",
+        "start_time": "10:19",
+        "end_time": "11:14",
         "room": "LT-1",
         "kind": "lecture",
         "created_at": ""
@@ -121,8 +121,8 @@
         "user_id": "u",
         "subject_id": "s0",
         "weekday": 5,
-        "start_time": "02:00",
-        "end_time": "02:55",
+        "start_time": "12:19",
+        "end_time": "13:14",
         "room": "LT-3",
         "kind": "lecture",
         "created_at": ""
@@ -132,8 +132,8 @@
         "user_id": "u",
         "subject_id": "s1",
         "weekday": 6,
-        "start_time": "00:30",
-        "end_time": "01:25",
+        "start_time": "10:49",
+        "end_time": "11:44",
         "room": "B-12",
         "kind": "lecture",
         "created_at": ""
@@ -143,8 +143,8 @@
         "user_id": "u",
         "subject_id": "s3",
         "weekday": 6,
-        "start_time": "01:35",
-        "end_time": "03:25",
+        "start_time": "11:54",
+        "end_time": "13:44",
         "room": "Lab 4",
         "kind": "lab",
         "created_at": ""
@@ -154,17 +154,17 @@
         "user_id": "u",
         "subject_id": "s0",
         "weekday": 0,
-        "start_time": "00:00",
-        "end_time": "00:55",
+        "start_time": "10:19",
+        "end_time": "11:14",
         "room": "LT-3",
         "kind": "lecture",
         "created_at": ""
       },
       {
-        "id": "e788efdd-a9ce-4be2-9e86-b82e70511439",
+        "id": "306cd75a-e5cf-4268-b0ce-ef4b35c9a6e5",
         "user_id": "u",
-        "created_at": "2026-09-09T20:49:17.670Z",
-        "subject_id": "b8bf7121-27cc-4a3a-a214-9c6cdbd450b8",
+        "created_at": "2026-09-10T07:54:53.936Z",
+        "subject_id": "854936ce-6e4b-4fe3-831b-0bec36f23e67",
         "weekday": 1,
         "start_time": "09:00",
         "end_time": "10:00",
@@ -216,9 +216,9 @@
         "created_at": ""
       },
       {
-        "id": "9673360b-0168-4c49-b9c3-3405ede6e05d",
+        "id": "84c11d97-d6ae-4162-ad82-16598b4bf93a",
         "user_id": "u",
-        "created_at": "2026-09-09T20:49:19.343Z",
+        "created_at": "2026-09-10T07:54:55.658Z",
         "kind": "exam",
         "subject_id": null,
         "start_time": null,
@@ -322,9 +322,9 @@
         "created_at": ""
       },
       {
-        "id": "32c7b941-644a-4dd0-8dbc-f856dfa4daaf",
+        "id": "4eea825e-760d-4de2-ad1e-af1b591cacbe",
         "user_id": "u",
-        "created_at": "2026-09-09T20:49:04.745Z",
+        "created_at": "2026-09-10T07:54:40.777Z",
         "notes": null,
         "subject_id": null,
         "due_date": "2026-09-10",
@@ -333,14 +333,14 @@
         "planned_date": "2026-09-10",
         "priority": 1,
         "done": true,
-        "done_at": "2026-09-09T20:49:05.176Z",
-        "position": -1788986944745,
+        "done_at": "2026-09-10T07:54:41.228Z",
+        "position": -1789026880777,
         "title": "UI daily task"
       },
       {
-        "id": "1ad4b16a-0004-4eec-9f83-743f507e2f96",
+        "id": "f44d3f69-d958-4542-a7bb-8443029270da",
         "user_id": "u",
-        "created_at": "2026-09-09T20:49:06.810Z",
+        "created_at": "2026-09-10T07:54:42.909Z",
         "notes": null,
         "subject_id": null,
         "due_date": null,
@@ -350,7 +350,7 @@
         "priority": 1,
         "done": false,
         "done_at": null,
-        "position": -1788986946810,
+        "position": -1789026882909,
         "title": "UI renamed permanent task"
       }
     ],
@@ -752,6 +752,12 @@
       "exam_lead_minutes": [
         60
       ],
+      "study_enabled": true,
+      "study_lead_minutes": 10,
+      "activity_enabled": true,
+      "activity_lead_minutes": 30,
+      "meeting_enabled": true,
+      "meeting_lead_minutes": 15,
       "quiet_enabled": false,
       "quiet_start": "23:00:00",
       "quiet_end": "07:00:00",
