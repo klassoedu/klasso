@@ -216,6 +216,27 @@ h1 { line-height: 1.22; }
 .sheet-close { display: grid; place-items: center; flex: none; width: 44px; height: 44px; border-radius: 50%; color: var(--text-dim); background: var(--surface-2); }
 .sheet-close:hover { color: var(--text); background: var(--border); }
 .sheet-body { flex: 1 1 auto; min-height: 0; overflow-y: auto; overscroll-behavior: contain; padding: 24px; scrollbar-gutter: stable; scroll-padding-block: 20px; }
+/* Sits above the docked nav on a phone, bottom-right on a desktop. Not a
+   modal: installing is an offer, and the app stays usable behind it. */
+.install-card {
+  position: fixed; z-index: 90; display: flex; flex-wrap: wrap; align-items: center; gap: 14px;
+  left: max(12px, env(safe-area-inset-left, 0px)); right: max(12px, env(safe-area-inset-right, 0px));
+  bottom: calc(96px + env(safe-area-inset-bottom, 0px));
+  padding: 16px; border: 1px solid var(--glass-line); border-radius: 22px;
+  background: var(--surface); box-shadow: var(--shadow-float);
+}
+.install-mark { flex: none; display: grid; place-items: center; width: 46px; height: 46px; color: var(--brand); }
+.install-copy { flex: 1 1 12rem; min-width: 0; }
+.install-copy strong { display: block; font-size: .9375rem; font-weight: 700; letter-spacing: -.01em; }
+.install-copy p { margin-top: 4px; font-size: .8125rem; line-height: 1.5; color: var(--text-dim); }
+.install-copy p svg { display: inline-block; vertical-align: -4px; margin-inline: 2px; color: var(--brand); }
+.install-copy b { color: var(--text); font-weight: 650; }
+.install-actions { display: flex; flex: 1 1 100%; gap: 8px; }
+.install-actions .btn { flex: 1; }
+@media (min-width: 900px) {
+  .install-card { left: auto; width: 27rem; right: 24px; bottom: 24px; }
+  .install-actions { flex: none; width: 100%; }
+}
 .sheet-confirm { position: absolute; inset: 0; z-index: 20; display: grid; place-items: center; padding: 20px; border-radius: inherit; background: rgb(9 29 20 / .55); }
 .sheet-confirm-card { width: min(100%, 22rem); padding: 20px; border: 1px solid var(--border); border-radius: 20px; background: var(--surface); box-shadow: var(--shadow-float); }
 .sheet-confirm-card h3 { font-size: 1.05rem; font-weight: 700; letter-spacing: -.02em; }
