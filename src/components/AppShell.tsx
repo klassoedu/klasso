@@ -6,6 +6,7 @@ import { createContext, useContext, type ReactNode } from "react";
 import { LayoutGroup, motion, useReducedMotion } from "motion/react";
 import { Icon, BrandMark } from "./icons";
 import { Banner, Button } from "./ui";
+import { InstallPrompt } from "./InstallPrompt";
 import { useApp } from "@/lib/store";
 
 export const PreviewContext = createContext(false);
@@ -89,6 +90,7 @@ export function AppShell({ children, screen }: { children: ReactNode; screen?: s
       {error && <div className="mb-5"><Banner tone={stale ? "warn" : "danger"}><div className="flex items-center justify-between gap-3"><span>{error}</span><Button size="sm" variant="ghost" onClick={() => void refresh()}><Icon name="refresh" size={16} />Retry</Button></div></Banner></div>}
       <main id="main-content">{children}</main>
     </div></div>
+    {!preview && <InstallPrompt />}
     <nav aria-label="Sections" className="bottom-nav nav-surface"><Navigation mobile active={active} /></nav>
   </div>;
 }
